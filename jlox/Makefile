@@ -13,16 +13,14 @@ build:
 	mvn package
 .PHONY: build
 
+compile:
+	mvn clean compile
+.PHONY: compile
+
 # Run project jar
 run:
 	java -jar target/$(JAR_NAME)
 .PHONY: build
-
-# Package then Run
-br:
-	make build
-	make run
-.PHONY: br
 
 # Copy dependencies from pom without compiling project
 update:
