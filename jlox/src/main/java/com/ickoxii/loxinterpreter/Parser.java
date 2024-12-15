@@ -1,6 +1,7 @@
 package com.ickoxii.loxinterpreter;
 
 import java.util.List;
+import java.lang.RuntimeException;
 
 import com.ickoxii.loxinterpreter.enums.TokenType;
 import static com.ickoxii.loxinterpreter.enums.TokenType.*;
@@ -19,11 +20,22 @@ import static com.ickoxii.loxinterpreter.enums.TokenType.*;
  *               | "(" expression ")";
  * */
 class Parser {
+  /** A simple sentinel class used to unwind the parse */
+  private static class ParseError extends RuntimeException {}
+
   private final List<Token> tokens;
   private int current = 0;
 
   Parser(List<Token> tokens) {
     this.tokens = tokens;
+  }
+
+  Expr parse() {
+    try {
+      return expression();
+    } catch (ParseError error) {
+      return null;
+    }
   }
 
   /**
@@ -144,6 +156,59 @@ class Parser {
       Expr expr = expression();
       consume(RIGHT_PAREN, "Expect ')' after expression.");
       return new Expr.Grouping(expr);
+    }
+
+    throw error(peek(), "Expect expression.");
+  }
+
+  /**
+   * Enter panic mode?
+   * */
+  private Token consume(TokenType type, String message) {
+    if (check(type)) return advance();
+
+    throw error(peek(), message);
+  }
+
+  /**
+   * handle error
+   *
+   * Returns the error instead of throwing it because we want
+   * the calling method inside parser to decide whether to
+   * unwind or not.
+   * */
+  private ParseError error(Token token, String message) {
+    Lox.error(token, message);
+    return new ParseError();
+  }
+
+  /**
+   * Discards tokens until we are at the beginning of the next
+   * statement. After a semicolon, we're probably finished with
+   * a statement.
+   *
+   * Most statements start with a keyword. When the next token
+   * is any of those, we're probably about to start a statement.
+   * */
+  private void synchronize() {
+    advance();
+
+    while (!isAtEnd()) {
+      if (previous().type == SEMICOLON) return;
+
+      switch (peek().type) {
+        case CLASS:
+        case FUN:
+        case VAR:
+        case FOR:
+        case IF:
+        case WHILE:
+        case PRINT:
+        case RETURN:
+          return;
+      }
+
+      advance();
     }
   }
 
