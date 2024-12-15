@@ -2,6 +2,10 @@ JAR_NAME=loxinterpreter-0.0.1-SNAPSHOT.jar
 ARTIFACT_ID=loxinterpreter
 
 # Package project
+build: compile
+	mvn package
+.PHONY: build
+
 compile: generate-ast
 	mvn clean compile
 .PHONY: compile
