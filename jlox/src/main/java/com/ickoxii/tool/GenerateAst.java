@@ -30,8 +30,10 @@ public class GenerateAst {
     defineAst(outputDir, "Stmt", Arrays.asList(
       "Block      : List<Stmt> statements",
       "Expression : Expr expression",
+      "Function   : Token name, List<Token> params, List<Stmt> body",
       "If         : Expr condition, Stmt thenBranch, Stmt elseBranch",
       "Print      : Expr expression",
+      "Return     : Token keyword, Expr value",
       "Var        : Token name, Expr initializer",
       "While      : Expr condition, Stmt body"
     ));
@@ -43,6 +45,10 @@ public class GenerateAst {
     String path = outputDir + "/" + baseName + ".java";
     PrintWriter writer = new PrintWriter(path, "UTF-8");
 
+    writer.println(" /**");
+    writer.println("  * Automatically generated code");
+    writer.println("  * */");
+    writer.println();
     writer.println("package com.ickoxii.loxinterpreter;");
     writer.println();
     writer.println("import java.util.List;");
