@@ -2,16 +2,16 @@ JAR_NAME=loxinterpreter-0.0.1-SNAPSHOT.jar
 ARTIFACT_ID=loxinterpreter
 
 # Package project
-build: compile
+build: generate-ast
 	mvn package
 .PHONY: build
 
-compile: generate-ast
+compile:
 	mvn clean compile
 .PHONY: compile
 
-generate-ast:
-	mvn -X exec:java -Dexec.mainClass="com.ickoxii.tool.GenerateAst" -Dexec.args="src/main/java/com/ickoxii/loxinterpreter"
+generate-ast: compile
+	mvn exec:java -Dexec.mainClass="com.ickoxii.tool.GenerateAst" -Dexec.args="src/main/java/com/ickoxii/loxinterpreter"
 .PHONY: generate-ast
 
 # Run project jar
