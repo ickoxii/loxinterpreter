@@ -1,12 +1,14 @@
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.lang.RuntimeException;
 
-import com.ickoxii.loxinterpreter.enums.TokenType;
-import static com.ickoxii.loxinterpreter.enums.TokenType.*;
+import com.ickoxii.jlox.enums.TokenType;
+
+import static com.ickoxii.jlox.enums.TokenType.*;
+
+import java.lang.RuntimeException;
 
 /**
  * Grammer Rules:

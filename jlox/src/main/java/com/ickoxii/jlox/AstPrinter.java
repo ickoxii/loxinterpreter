@@ -1,8 +1,8 @@
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
 
 import java.lang.StringBuilder;
 
-import com.ickoxii.loxinterpreter.enums.TokenType;
+import com.ickoxii.jlox.enums.TokenType;
 
 class AstPrinter implements Expr.Visitor<String> {
   String print(Expr expr) {

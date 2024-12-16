@@ -1,4 +1,4 @@
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
 
 class RuntimeError extends RuntimeException {
   final Token token;

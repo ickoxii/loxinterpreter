@@ -1,12 +1,12 @@
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
 
 import java.util.List;
 import java.util.Map;
 
+import com.ickoxii.jlox.enums.TokenType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import com.ickoxii.loxinterpreter.enums.TokenType;
 
 class Interpreter implements Expr.Visitor<Object>,
                              Stmt.Visitor<Void> {

@@ -1,4 +1,4 @@
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import com.ickoxii.loxinterpreter.enums.TokenType;
+import com.ickoxii.jlox.enums.TokenType;
 
 /**
  * Lox is the base class for our loxinterpreter.

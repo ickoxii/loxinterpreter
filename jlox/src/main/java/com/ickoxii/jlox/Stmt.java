@@ -2,7 +2,7 @@
   * Automatically generated code
   * */
 
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
 
 import java.util.List;
 

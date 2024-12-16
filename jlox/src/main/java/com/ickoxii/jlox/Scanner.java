@@ -1,12 +1,13 @@
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
+
+import static com.ickoxii.jlox.enums.TokenType.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.ickoxii.loxinterpreter.enums.TokenType.*;
-import com.ickoxii.loxinterpreter.enums.TokenType;
+import com.ickoxii.jlox.enums.TokenType;
 
 class Scanner {
   private final String source;
