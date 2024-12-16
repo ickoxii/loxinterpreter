@@ -1,28 +1,25 @@
 JAR_NAME=loxinterpreter-0.0.1-SNAPSHOT.jar
 ARTIFACT_ID=loxinterpreter
 
-help:
-	echo "build   | package the project"
-	echo "run     | run the jar"
-	echo "br      | build and run"
-	echo "update  | pull updated dependencies"
-.PHONY: help
-
 # Package project
-build:
+build: generate-ast compile
 	mvn package
 .PHONY: build
+
+compile:
+	mvn clean compile
+.PHONY: compile
+
+generate-ast:
+	# mvn exec:java -Dexec.mainClass="com.ickoxii.tool.GenerateAst" -Dexec.args="src/main/java/com/ickoxii/loxinterpreter"
+	javac -d target/classes -cp src/main/java src/main/java/com/ickoxii/tool/GenerateAst.java
+	java -cp target/classes com.ickoxii.tool.GenerateAst src/main/java/com/ickoxii/jlox
+.PHONY: generate-ast
 
 # Run project jar
 run:
 	java -jar target/$(JAR_NAME)
-.PHONY: build
-
-# Package then Run
-br:
-	make build
-	make run
-.PHONY: br
+.PHONY: run
 
 # Copy dependencies from pom without compiling project
 update:

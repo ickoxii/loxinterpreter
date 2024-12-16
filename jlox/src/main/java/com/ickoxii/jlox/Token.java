@@ -1,6 +1,6 @@
-package com.ickoxii.loxinterpreter;
+package com.ickoxii.jlox;
 
-import com.ickoxii.loxinterpreter.enums.TokenType;
+import com.ickoxii.jlox.enums.TokenType;
 
 class Token {
   final TokenType type;

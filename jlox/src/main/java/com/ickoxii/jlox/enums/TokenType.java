@@ -1,4 +1,4 @@
-package com.ickoxii.loxinterpreter.enums;
+package com.ickoxii.jlox.enums;
 
 /**
  * {@code TokenType} stores reserved {@code Lox} keywords.
