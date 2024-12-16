@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ickoxii</groupId>
-  <artifactId>loxinterpreter</artifactId>
+  <artifactId>jlox</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <description><!-- OPTIONAL --></description>
 
@@ -64,7 +64,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.ickoxii.loxinterpreter.Lox</mainClass>
+                  <mainClass>com.ickoxii.jlox.Lox</mainClass>
                   </transformer>
                 </transformers>
               </configuration>

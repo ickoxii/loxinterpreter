@@ -13,7 +13,7 @@ compile:
 generate-ast:
 	# mvn exec:java -Dexec.mainClass="com.ickoxii.tool.GenerateAst" -Dexec.args="src/main/java/com/ickoxii/loxinterpreter"
 	javac -d target/classes -cp src/main/java src/main/java/com/ickoxii/tool/GenerateAst.java
-	java -cp target/classes com.ickoxii.tool.GenerateAst src/main/java/com/ickoxii/loxinterpreter
+	java -cp target/classes com.ickoxii.tool.GenerateAst src/main/java/com/ickoxii/jlox
 .PHONY: generate-ast
 
 # Run project jar

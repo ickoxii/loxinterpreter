@@ -49,7 +49,7 @@ public class GenerateAst {
     writer.println("  * Automatically generated code");
     writer.println("  * */");
     writer.println();
-    writer.println("package com.ickoxii.loxinterpreter;");
+    writer.println("package com.ickoxii.jlox;");
     writer.println();
     writer.println("import java.util.List;");
     writer.println();
